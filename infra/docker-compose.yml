@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  streamlit:
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile
+    ports:
+      - "8501:8501"
+    volumes:
+      - ..:/app:cached
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  api:
+    image: tiangolo/uvicorn-gunicorn-fastapi:python3.10
+    volumes:
+      - ..:/app:ro
+    working_dir: /app
+    command: uvicorn backend.api_stub:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"

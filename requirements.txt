@@ -1,0 +1,21 @@
+# frontend
+streamlit>=1.20
+
+# data & analysis
+pandas>=1.5
+numpy>=1.23
+yfinance>=0.2
+plotly>=5.0
+
+# backend API (stub / future FastAPI)
+fastapi>=0.95
+uvicorn[standard]>=0.22
+
+# optional indicator library (if you later use it)
+ta>=0.10
+
+# dev / testing / linting
+pytest>=7.0
+flake8>=6.0
+python-dotenv>=1.0
+requests>=2.31
